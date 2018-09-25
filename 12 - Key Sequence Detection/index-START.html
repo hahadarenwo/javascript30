@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+</head>
+
+<body>
+  <div>
+    <input type="text" placeholder="请输入">
+  </div>
+  <script>
+    const pressed = [];
+    const secretCode = 'litash';
+
+    window.addEventListener('keyup', (e) => {
+      console.log(e.key);
+      pressed.push(e.key);
+      console.log(pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length));
+      pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+      if(pressed.join('').includes(secretCode)){
+        alert('DINGIDNGIDNG MOFU')
+      }
+      console.log(`数组内容: ${pressed}`)
+    });
+  </script>
+</body>
+
+</html>
